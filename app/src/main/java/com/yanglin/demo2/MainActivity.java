@@ -12,11 +12,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.yanglin.demo2.api.ApiUtils;
 import com.yanglin.demo2.base.BaseActivity;
+import com.yanglin.demo2.bean.DemoJsonBean;
 import com.yanglin.demo2.ui.StudyActivity;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import rx.Subscriber;
 
 import static android.support.v4.widget.DrawerLayout.LOCK_MODE_LOCKED_CLOSED;
 
@@ -57,6 +60,22 @@ public class MainActivity extends BaseActivity {
 
     private void init() {
         mDlRoot.setDrawerLockMode(LOCK_MODE_LOCKED_CLOSED);
+        ApiUtils.request(ApiUtils.getApiInterface().demojson(), new Subscriber<DemoJsonBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(DemoJsonBean demoJsonBean) {
+
+            }
+        });
     }
 
 
